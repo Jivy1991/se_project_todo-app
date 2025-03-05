@@ -38,31 +38,33 @@ class FormValidator {
     }
   }
 
-  _toggleButtonState(inputList, buttonElement) {
-    const hasInvalidInput = inputList.some((input) => !input.validity.valid);
+  _toggleButtonState() {
+    const hasInvalidInput = this._inputList.some(
+      (input) => !input.validity.valid
+    );
     if (hasInvalidInput) {
-      buttonElement.classList.add(this._inactiveButtonClass);
-      buttonElement.disabled = true;
+      this._buttonElement.classList.add(this._inactiveButtonClass);
+      this._buttonElement.disabled = true;
     } else {
-      buttonElement.classList.remove(this._inactiveButtonClass);
-      buttonElement.disabled = false;
+      this._buttonElement.classList.remove(this._inactiveButtonClass);
+      this._buttonElement.disabled = false;
     }
   }
 
   _setEventListeners() {
-    const inputList = Array.from(
+    this._inputList = Array.from(
       this._formEl.querySelectorAll(this._inputSelector)
     );
-    const buttonElement = this._formEl.querySelector(
+    this._buttonElement = this._formEl.querySelector(
       this._submitButtonSelector
     );
 
-    this._toggleButtonState(inputList, buttonElement);
+    this._toggleButtonState();
 
-    inputList.forEach((inputElement) => {
+    this._inputList.forEach((inputElement) => {
       inputElement.addEventListener("input", () => {
         this._checkInputValidity(inputElement);
-        this._toggleButtonState(inputList, buttonElement);
+        this._toggleButtonState();
       });
     });
   }
@@ -75,13 +77,9 @@ class FormValidator {
   resetValidation() {
     this._formEl.reset();
 
-    const inputList = Array.from(
-      this._formEl.querySelectorAll(this._inputSelector)
-    );
-
-    inputList.forEach((inputElement) => {
-      this._hideInputError(inputElement);
-    });
+    // this._inputList.forEach((inputElement) => {
+    //   this._hideInputError(inputElement);
+    // });
 
     this._toggleButtonState();
   }
