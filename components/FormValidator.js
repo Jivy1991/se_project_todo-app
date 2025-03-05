@@ -68,10 +68,22 @@ class FormValidator {
   }
 
   enableValidation() {
-    this._formEl.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-    });
     this._setEventListeners();
+    this._toggleButtonState();
+  }
+
+  resetValidation() {
+    this._formEl.reset();
+
+    const inputList = Array.from(
+      this._formEl.querySelectorAll(this._inputSelector)
+    );
+
+    inputList.forEach((inputElement) => {
+      this._hideInputError(inputElement);
+    });
+
+    this._toggleButtonState();
   }
 }
 
