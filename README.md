@@ -1,14 +1,13 @@
-# Simple Todo App
-
-Give a brief description of the project here. Feel free to give it a different name.
+# Todo App
+A simple Javascript class for validating for inputs and managing form submission states. This project ensures inputs meet validation criteria and provides a method to reset the validation state.
 
 ## Functionality
 
-Give a more detailed explanation of the project and its functionality.
+The formValidation class will handle form validated by: Validating Inputs, Managing form State, Reset Validation method, and Event handling.
 
 ## Technology
 
-Give a description of the technologies and techniques used. Pictures, GIFs, or screenshots that detail the project features are recommended.
+Javascript, Html, CSS, VS code Bash
 
 ## Deployment
 
