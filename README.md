@@ -12,5 +12,4 @@ Javascript, Html, CSS, VS code Bash
 ## Deployment
 
 This project is deployed on GitHub Pages:
-
-- ADD LINK HERE
+https://github.com/Jivy1991/se_project_todo-app.git
