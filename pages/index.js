@@ -39,14 +39,6 @@ const addTodoPopup = new PopupWithForm({
 
 addTodoPopup.setEventListeners();
 
-const openModal = (modal) => {
-  modal.classList.add("popup_visible");
-};
-
-const closeModal = (modal) => {
-  modal.classList.remove("popup_visible");
-};
-
 function handleCheck(todo) {
   if (todo.completed) {
     todoCounter.updateCompleted(true);
@@ -56,11 +48,6 @@ function handleCheck(todo) {
 }
 
 function handleDelete(todoData) {
-  const todoElement = document.getElementById(`todo-${todoData.id}`);
-  if (todoElement) {
-    todoElement.remove();
-  }
-
   todoCounter.updateTotal(false);
   if (todoData.completed) {
     todoCounter.updateCompleted(false);
