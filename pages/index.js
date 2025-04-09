@@ -29,6 +29,7 @@ const addTodoPopup = new PopupWithForm({
       completed: false,
     };
 
+    renderTodo(todoData);
     todoCounter.updateTotal(true);
     addTodoPopup.close();
     newTodoValidator.resetValidation();
@@ -64,7 +65,7 @@ const generateTodo = (data) => {
 
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {},
+  renderer: (item) => renderTodo(item),
   containerSelector: ".todos__list",
 });
 section.renderItems();
