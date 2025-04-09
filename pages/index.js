@@ -29,14 +29,16 @@ const addTodoPopup = new PopupWithForm({
       completed: false,
     };
 
-    const todo = generateTodo(todoData);
-    section.addItem(todo);
     todoCounter.updateTotal(true);
     addTodoPopup.close();
     newTodoValidator.resetValidation();
   },
 });
 
+function renderTodo(item) {
+  const todo = generateTodo(item);
+  section.addItem(todo);
+}
 addTodoPopup.setEventListeners();
 
 function handleCheck(todo) {
@@ -62,10 +64,7 @@ const generateTodo = (data) => {
 
 const section = new Section({
   items: initialTodos,
-  renderer: (item) => {
-    const todo = generateTodo(item);
-    section.addItem(todo);
-  },
+  renderer: (item) => {},
   containerSelector: ".todos__list",
 });
 section.renderItems();
